@@ -1,4 +1,4 @@
-var request = require('through');
+var request = require('request');
 
 r = request.post('http://localhost:8000');
 
