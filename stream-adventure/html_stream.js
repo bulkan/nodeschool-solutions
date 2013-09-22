@@ -3,9 +3,9 @@ var trumpet = require('trumpet')
 
 var tr = trumpet();
 
-
-var stream = tr.select('.loud').createWriteStream();
 process.stdin.pipe(tr);
+
+var stream = tr.select('.loud').createStream();
 
 var t = through(
   function write(buf){
@@ -13,4 +13,4 @@ var t = through(
   }
 );
 
-stream.pipe(t);
+stream.pipe(t).pipe(process.stdout);
